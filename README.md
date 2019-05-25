@@ -9,3 +9,5 @@ Some advantages:
 ### Installation
 This Application requires a Webbrowser with JavaScript support to run.
 Just clone or download this project and open index.html in your Webbrowser.
+
+![Alt text](Resources/Public/Images/app_screenshot.png?raw=true "Application Screenshot")
