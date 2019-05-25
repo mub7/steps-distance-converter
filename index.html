@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <script src="Resources/Public/Js/vue.min.js"></script>
+    <title>Steps In Distance Converter</title>
+</head>
+<body>
+<h1>Simple Steps In Distance Converter WebApplication</h1>
+<div id="app">
+    <label>Entry your steps here:</label>
+    <input type="number" v-model.steps="steps"><br><br>
+    <label>Chose your height here:</label><br><br>
+    <input type="radio" name="height" v-model="height" value="0.6" checked="checked"> Height between 1,50 m and 1,70 m
+    <br>
+    <input type="radio" name="height" v-model="height" value="0.7"> Height between 1,70 m and 1,90 m<br>
+    <h2>Total steps: {{ totalSteps }}</h2>
+    <h2>Calculated distance in meters: {{ totalMeters }}</h2>
+    <h2>Calculated distance in kilometers: {{ totalKilometers }}</h2>
+</div>
+<footer>
+    <script>
+        const app = new Vue({
+            el: '#app',
+            data: {
+                steps: 0,
+                height: 0
+            },
+            computed: {
+                totalSteps() {
+                    return this.steps
+                },
+                totalMeters() {
+                    // total steps * average step length of chosen height
+                    return this.steps * this.height
+                },
+                totalKilometers() {
+                    // total meters / 1000
+                    return (this.steps * this.height) / 1000
+                }
+            }
+        })
+    </script>
+    <p>This is a simple calculator. To determine the distance, the calculations are made with average values.
+        Information provided without guarantee.</p>
+</footer>
+</body>
+</html>
